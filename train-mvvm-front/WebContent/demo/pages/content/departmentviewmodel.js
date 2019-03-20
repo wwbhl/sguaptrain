@@ -7,7 +7,12 @@ define([], function() {
 		self.columns = [
 			{name:"depName",width:"200px",caption:"部门名称",nullable:false},
 			{name:"depDesc",caption:"描述"},
-			{name:"depParentId",caption:"父ID",visible:false}];
+			{name:"depParentId",caption:"父ID",visible:false,value:params.depId}];
+		
+		self.onItemSaved = function(item){
+			PubSub.publish('depSave',item);
+		};
+		
 		cube.subscribe(params.depId,function(){
 			self.args({"depParentId":params.depId()});
 		});

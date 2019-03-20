@@ -73,6 +73,9 @@ public class DepartmentService  implements IDepartmentService{
 		}else{
 			try {
 				BeanUtils.populate(department, map);
+				if(department.getDepParentId().equals("")){
+					department.setDepParentId(null);
+				}
 			} catch (IllegalAccessException | InvocationTargetException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
