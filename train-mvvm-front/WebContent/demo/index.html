@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>场景示例演示</title>
+<script src="../cube/scripts/framework.js" type="text/javascript" charset="utf-8"></script>
+<script data-main='demo/model.js' src='../cube/scripts/libs/require.js'></script>
+<link rel="stylesheet" type="text/css" href="./resources/css/common.css"/>
+</head>
+<body>
+<div data-bind="component: { name: 'demo.head.main',params: {} }"></div>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<include params="{url:'demo.left.main',params:{depId:depId}}"></include>
+		</div>
+		<div class="span10">
+			<include params="{url:'demo.content.department',params:{depId:depId}}"></include>
+		</div>
+	</div>
+</div>
+</body>
+</html>

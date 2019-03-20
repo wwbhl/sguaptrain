@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Model id="dd6429a529cd44f599ba021bce5f134a" name="test" nameSpace="com.sgcc.uap" displayName="test">
+    <VersionInfo id="aa2fc0075d904252b9857942a6923f5f">
+        <Version>1.0</Version>
+        <CreatedTime>2019-03-18 16:18:17</CreatedTime>
+        <ChangedTime>2019-03-18 16:18:17</ChangedTime>
+        <Creator>administrator</Creator>
+        <Modifier>administrator</Modifier>
+        <Description>This is a demo model.</Description>
+    </VersionInfo>
+    <Package id="b2b07543e5844d88b99f2c458745ad60" name="test" displayName="test">
+        <Diagrams>
+            <Diagram id="471f52ec473448abb7816792f354c721" name="test" displayName="test">
+                <DiagramStyle>
+                    <BackGroundColor>white</BackGroundColor>
+                    <GridStyle>false</GridStyle>
+                    <ZoomScale>100%</ZoomScale>
+                </DiagramStyle>
+            </Diagram>
+        </Diagrams>
+    </Package>
+</Model>

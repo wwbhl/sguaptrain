@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:module="http://www.sgcc.com.cn/schema/platform/module" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  http://www.sgcc.com.cn/schema/platform/module http://www.sgcc.com.cn/schema/platform/module/module.xsd">  
+  <!--JDBC DataSource Example-->  
+  <!-- <bean id="dataSource" name="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://192.168.1.201:3306/database"/>
+    <property name="username" value="root"/>
+    <property name="password" value="root"/>
+    <property name="maxActive" value="100"/>
+    <property name="maxIdle" value="30"/>
+    <property name="maxWait" value="5000"/>
+    <property name="defaultAutoCommit" value="true"/>
+    <property name="removeAbandoned" value="true"/>
+    <property name="removeAbandonedTimeout" value="60"/>
+    <property name="logAbandoned" value="true"/>
+  </bean> -->  
+  <bean id="uaptext" name="uaptext" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://10.0.0.2:3306/uaptext"/>
+    <property name="username" value="root"/>
+    <property name="password" value="Test1235"/>
+    <property name="maxActive" value="100"/>
+    <property name="maxIdle" value="30"/>
+    <property name="maxWait" value="5000"/>
+    <property name="defaultAutoCommit" value="true"/>
+    <property name="removeAbandoned" value="true"/>
+    <property name="removeAbandonedTimeout" value="60"/>
+    <property name="logAbandoned" value="true"/>
+  </bean>
+</beans>

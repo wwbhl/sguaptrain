@@ -1,0 +1,55 @@
+buildscript {
+  repositories {
+    //maven { url "http://repo.spring.io/libs-snapshot" }
+    //mavenLocal() 
+    //mavenCentral()
+     flatDir {
+            dirs 'common-lib'
+        }
+     }
+     
+    dependencies {
+    classpath group: 'io.spring.gradle', name: 'dependency-management-plugin', version: '0.6.1.RELEASE'
+    classpath group: 'org.springframework.boot', name: 'spring-boot-loader-tools', version: '1.4.1.RELEASE'
+    classpath group: 'org.springframework', name: 'spring-core', version: '4.3.3.RELEASE'
+    classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+    }
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'eclipse'
+  apply plugin: 'spring-boot'
+
+
+  sourceCompatibility = 1.8
+
+  repositories {
+      flatDir {
+           dirs '../uaplib'
+      }
+  }
+
+  //如开发环境可以链接公网，请取消以下注释，从maven中央库自动下载依赖包，
+  //如开发环境不能链接公网，请手动下载依赖包，放入lib目录中，并按dependendies中的方式进行加载
+  //如搭建自己的maven私服，请将以下的地址修改为私服地址
+  repositories {
+//     maven { url "http://repo.spring.io/libs-snapshot" }
+//     mavenLocal() 
+//     mavenCentral()
+  }
+
+  apply from: '../pubbuild.gradle'
+  apply from: '../uapbuild.gradle'
+
+
+  test {
+    systemProperties 'property': 'value'
+  }
+
+  uploadArchives {
+     repositories {
+       flatDir {
+           dirs 'repos'
+       }
+     }

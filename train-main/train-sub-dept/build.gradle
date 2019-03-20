@@ -1,0 +1,17 @@
+
+version = '1.0'
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.sgcc.uap.Application'
+    }
+}
+
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+dependencies {
+   
+}

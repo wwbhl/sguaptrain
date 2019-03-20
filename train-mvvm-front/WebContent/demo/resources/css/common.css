@@ -1,0 +1,17 @@
+/* common */
+body{overflow:hidden;}
+.white,.white a:link,.white a:visited{color:#fff;}
+.white a:hover{color:#ff0;}
+.topbar-wrap{height:55px;line-height:55px;background:#278874;}
+.topbar-inner{font-size:18px;padding:0 20px;}
+.topbar-logo-wrap{float:left;}
+.topbar-logo{float:left;width:184px;padding-left:150px;background:url('../images/logo.png') 0px 6px no-repeat;}
+.navbar {margin-bottom: 10px;overflow: visible;}
+.navbar-list{float:left;}
+.top-info-wrap{float:right;}
+.top-info-list {list-style:none outside;padding:0;margin:0}
+.top-info-list li{float:left;line-height:55px}
+.top-info-list li a{float:left;margin-left:5px;padding:0 20px;display:inline;zoom:1;}
+.top-info-list li a:hover{background:#186d5c;text-decoration: none;}
+.crumb-wrap {height: 30px; line-height: 29px; border-bottom: 1px solid #e5e5e5;margin-bottom: 15px; }
+.tree{min-height:600px}

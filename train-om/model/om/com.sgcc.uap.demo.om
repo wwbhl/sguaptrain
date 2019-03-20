@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Model id="80f510ce38574f84997c2372edc5995c" name="demo" displayName="demo" stereotype="3" nameSpace="com.sgcc.uap">
+  <VersionInfo>
+    <CreatedTime>2019-03-19 11:17:42</CreatedTime>
+    <ChangedTime>2019-03-19 22:03:18</ChangedTime>
+    <Description>This is a demo model.</Description>
+    <Version>1.0</Version>
+    <Creator>administrator</Creator>
+    <Modifier>administrator</Modifier>
+  </VersionInfo>
+  <Package id="9208d18247a448fe9d2fabcc72f55c0c" name="demo" displayName="demo" stereotype="3">
+    <Diagrams>
+      <Diagram id="bc7bd915247a430c88514862e1567ffb" name="demo" displayName="demo" stereotype="3">
+        <DiagramStyle>
+          <BackGroundColor>white</BackGroundColor>
+          <GridStyle>false</GridStyle>
+          <ZoomScale>100%</ZoomScale>
+          <Layout></Layout>
+        </DiagramStyle>
+        <Elements>
+          <Element id="5c75f79558cd4cb19ed7ffb90596124d" objectId="7faa65b7677b4b05aba2e3904f8ea711">
+            <ElementStyle>
+              <FontFamily></FontFamily>
+              <FontSize>0</FontSize>
+              <Width>150</Width>
+              <Height>200</Height>
+              <Position_X>10.0</Position_X>
+              <Position_Y>40.0</Position_Y>
+              <End_Position_X>0.0</End_Position_X>
+              <End_Position_Y>0.0</End_Position_Y>
+              <Point_List></Point_List>
+              <Border>false</Border>
+              <BorderColor></BorderColor>
+              <BackGroundColor></BackGroundColor>
+            </ElementStyle>
+          </Element>
+        </Elements>
+      </Diagram>
+    </Diagrams>
+    <BusinessClasses>
+      <BusinessClass id="7faa65b7677b4b05aba2e3904f8ea711" name="Department" displayName="Department" stereotype="3">
+        <TableName>department</TableName>
+        <IsAbstract>false</IsAbstract>
+        <Properties>
+          <Property id="f9d4b2d41d8d4dabb93402c5e7fd72ad" name="id" displayName="id" stereotype="3">
+            <GroupId></GroupId>
+            <DataType>string</DataType>
+            <OrderNum>0</OrderNum>
+            <Editor id="3215e1abcea440c9befdf817133ec269" name="" displayName="" editorType="TextEditor" dataSourceType="0"/>
+            <DefaultValue></DefaultValue>
+            <DBColumnName>id</DBColumnName>
+            <DBDataType></DBDataType>
+            <DBDataLength>42</DBDataLength>
+            <DBDataPrecision></DBDataPrecision>
+            <QueryProperty>false</QueryProperty>
+            <IsPrimaryKey>true</IsPrimaryKey>
+            <Unique>true</Unique>
+            <Nullable>false</Nullable>
+            <ReadOnly>false</ReadOnly>
+            <IndexedColumn>false</IndexedColumn>
+            <Persistence>true</Persistence>
+            <PkName></PkName>
+            <PrimaryKeyPloy>UUID</PrimaryKeyPloy>
+          </Property>
+          <Property id="5c258762fab04392a31a31a75f133dcd" name="depName" displayName="部门名称" stereotype="3">
+            <GroupId></GroupId>
+            <DataType>string</DataType>
+            <OrderNum>1</OrderNum>
+            <Editor id="abb2f58d20f64367bdf756bdecb75bbb" name="" displayName="" stereotype="3" editorType="TextEditor" dataSourceType="0"/>
+            <DefaultValue></DefaultValue>
+            <DBColumnName>depname</DBColumnName>
+            <DBDataType></DBDataType>
+            <DBDataLength>20</DBDataLength>
+            <DBDataPrecision>0</DBDataPrecision>
+            <QueryProperty>false</QueryProperty>
+            <IsPrimaryKey>false</IsPrimaryKey>
+            <Unique>false</Unique>
+            <Nullable>true</Nullable>
+            <ReadOnly>false</ReadOnly>
+            <IndexedColumn>false</IndexedColumn>
+            <Persistence>true</Persistence>
+          </Property>
+          <Property id="b1c63e2671254543852a07c8a458b473" name="depParentId" displayName="父ID" stereotype="3">
+            <GroupId></GroupId>
+            <DataType>string</DataType>
+            <OrderNum>2</OrderNum>
+            <Editor id="64869006e5464597935f60d812d8dfa2" name="" displayName="" stereotype="3" editorType="TextEditor" dataSourceType="0"/>
+            <DefaultValue></DefaultValue>
+            <DBColumnName>depparentid</DBColumnName>
+            <DBDataType></DBDataType>
+            <DBDataLength>42</DBDataLength>
+            <DBDataPrecision>0</DBDataPrecision>
+            <QueryProperty>false</QueryProperty>
+            <IsPrimaryKey>false</IsPrimaryKey>
+            <Unique>false</Unique>
+            <Nullable>true</Nullable>
+            <ReadOnly>false</ReadOnly>
+            <IndexedColumn>false</IndexedColumn>
+            <Persistence>true</Persistence>
+          </Property>
+          <Property id="61a4bf2f15f143f9bb9b71aa585c4a4e" name="depDesc" displayName="描述" stereotype="3">
+            <GroupId></GroupId>
+            <DataType>string</DataType>
+            <OrderNum>3</OrderNum>
+            <Editor id="08b5a7442d4746079ba5c7c20266068d" name="" displayName="" stereotype="3" editorType="TextEditor" dataSourceType="0"/>
+            <DefaultValue></DefaultValue>
+            <DBColumnName>depdesc</DBColumnName>
+            <DBDataType></DBDataType>
+            <DBDataLength>20</DBDataLength>
+            <DBDataPrecision>0</DBDataPrecision>
+            <QueryProperty>false</QueryProperty>
+            <IsPrimaryKey>false</IsPrimaryKey>
+            <Unique>false</Unique>
+            <Nullable>true</Nullable>
+            <ReadOnly>false</ReadOnly>
+            <IndexedColumn>false</IndexedColumn>
+            <Persistence>true</Persistence>
+          </Property>
+        </Properties>
+        <ExtendAttributies/>
+        <Operations>
+          <Operation id="a102faebc9f54c6fba2c381aedbef634" name="add" displayName="新增" stereotype="3" operationType="standard"/>
+          <Operation id="67b84795786e474283b2e1eb4a4eea40" name="update" displayName="编辑" stereotype="3" operationType="standard"/>
+          <Operation id="df9691c58fdb4f708849bfc50fed1e72" name="delete" displayName="删除" stereotype="3" operationType="standard"/>
+          <Operation id="9a95037fc1b6400c9657594dff61ad94" name="get" displayName="获取详情" stereotype="3" operationType="standard"/>
+          <Operation id="f8ba73fc90364478be38919ce4e1d4c4" name="query" displayName="查询列表" stereotype="3" operationType="standard"/>
+        </Operations>
+      </BusinessClass>
+    </BusinessClasses>
+  </Package>
+</Model>
