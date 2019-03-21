@@ -4,15 +4,23 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.sgcc.uap.demo.domain.Employee;
 import com.sgcc.uap.demo.repositories.EmployeeRepository;
 import com.sgcc.uap.rest.support.IDRequestObject;
+import com.sgcc.uap.rest.support.QueryFilter;
 import com.sgcc.uap.rest.support.QueryResultObject;
 import com.sgcc.uap.rest.support.RequestCondition;
 import com.sgcc.uap.rest.utils.CrudUtils;
@@ -73,6 +81,25 @@ public class EmployeeService  implements IEmployeeService{
 	}
 	@Override
 	public QueryResultObject query(RequestCondition queryCondition) {
+		List<QueryFilter> qList = queryCondition.getQueryFilter();
+		Specification<Employee> specification = new Specification<Employee>() {
+			@Override
+			public Predicate toPredicate(Root<Employee> root, CriteriaQuery<?> query, CriteriaBuilder cb) {
+			Predicate predicate = null;
+			if(qList != null && !qList.isEmpty()){
+			for(QueryFilter queryFilter : qList){
+			Path<String> namePath = root.get(queryFilter.getFieldName());
+			if(queryFilter.getFieldName().equals("depId")){
+			predicate = cb.equal(namePath, queryFilter.getValue());
+			}else{
+			predicate = cb.like(namePath, "%"+queryFilter.getValue()+"%");
+			}
+			query.where(predicate);
+			}
+			}
+			return null;
+			}
+			};
 		PageRequest request = this.buildPageRequest(queryCondition);
 		Page<Employee> employee = employeeRepository.findAll(request);
 		List<Employee> result = null;

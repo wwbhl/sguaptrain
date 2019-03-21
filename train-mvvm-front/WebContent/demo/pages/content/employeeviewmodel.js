@@ -2,7 +2,7 @@
 define([], function() {
 	var PageViewModel = function(params) {
 		var self = this;
-		self.url = cube.gatewayURL + "/employee/";
+		self.url = cube.gatewayURL_emp + "/employee/";
 		self.args = cube.obj({
 			"depId" : params.depId()
 		});
