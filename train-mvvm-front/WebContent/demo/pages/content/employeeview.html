@@ -1,0 +1,24 @@
+<div style="float: left">
+<toolbar params="
+toolbarContent: toolbarContent,
+onItemClick: onItemClick,
+showtext: true"></toolbar>
+</div>
+<div style="float: right">
+<searchbox id="sear" params="fields: fields,
+gridId:'empgrid'"></searchbox>
+</div>
+<datagrid id="empgrid" params="
+columns: columns,
+loadMeta: false,
+isShowStripe: true,
+isAllowAppend: false,
+isAllowOperations:true,
+isShowCheckBox:true,
+url: url,
+args:args,
+primaryKey: 'id',
+customOperations:customOperations,
+isAllowDelete: true,
+onSelectedItems:onSelectedItems
+"></datagrid>

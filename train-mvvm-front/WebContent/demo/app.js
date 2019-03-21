@@ -5,5 +5,6 @@ define(['text'], function(text){
 			cube.importComponent("layout.include");
 			cube.importComponent("datacontainer.tree");
 			cube.importComponent("datacontainer.datagrid");
-
+	         cube.importComponent("datacontainer.searchbox");
+	         cube.importComponent("controls.toolbar");
 });
