@@ -130,4 +130,11 @@ public class EmployeeService  implements IEmployeeService{
 		}
 		return new PageRequest(pageIndex - 1, pageSize, null);
 	}
+	
+	@Override
+	public Long countByDepId(String depId) {
+	// TODO Auto-generated method stub
+	return employeeRepository.countByDepId(depId);
+	}
+
 }

@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.sgcc.uap.demo.services.IDepartmentService;
 import com.sgcc.uap.demo.vo.DepartmentVO;
@@ -164,4 +166,17 @@ public class DepartmentController {
 		}
 	}
 
+	@Bean
+	RestTemplate restTemplate(){
+		return new RestTemplate();
+	}
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@RequestMapping(value="/count/{params}")
+	public int getEmployeeCount(@PathVariable String params){
+	int count = 0;
+	count = restTemplate.getForObject("http://localhost:9996/employee/count/{params}", int.class,params);
+	return count;
+	}
 }

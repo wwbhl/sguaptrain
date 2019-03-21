@@ -137,5 +137,10 @@ public class EmployeeController {
 			return WrappedResult.failedWrappedResult(e.getMessage());
 		}
 	}
+	
+	@RequestMapping(value="/count/{params}")
+	public int getEmployeeCount(@PathVariable String params){
+	return employeeService.countByDepId(params).intValue();
+	}
 
 }

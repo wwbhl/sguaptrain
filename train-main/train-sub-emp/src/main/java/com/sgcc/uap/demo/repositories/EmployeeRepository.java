@@ -17,5 +17,5 @@ import com.sgcc.uap.demo.domain.Employee;
  * @since 1.0
  */
 public interface EmployeeRepository extends JpaRepository<Employee,String>,JpaSpecificationExecutor<Employee> {
-	
+	public Long countByDepId(String depId);
 }

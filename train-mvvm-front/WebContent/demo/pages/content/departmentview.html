@@ -1,13 +1,14 @@
+<div style="margin-bottom: 20px">员工人数：<span data-bind="text:count"></span></div>
 <datagrid id="datagrid" params="
-						loadMeta: false,
+						loadMeta:false,
 						columns: columns,
 						isShowStripe: true,
 						isAllowEdit: true,
 						isAllowDelete: true,
-						isShowSave: true,
+						isShowSave:true,
 						isAllowOperations: true,
 						url: url,
-						args: args,
+						args:args,
 						primaryKey: 'id',
-						onItemSaved: onItemSaved
+						onItemSaved:onItemSaved
 						"></datagrid>

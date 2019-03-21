@@ -20,6 +20,12 @@ import com.sgcc.uap.rest.support.RequestCondition;
  */
 public interface IEmployeeService {
 	/**
+	 * 查询部门下的员工数
+	 * @param depId
+	 * @return
+	 */
+	public Long countByDepId(String depId);
+	/**
 	 * 根据主键 查询
 	 * @param queryCondition
 	 * @return
