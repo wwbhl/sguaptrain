@@ -12,6 +12,7 @@ import javax.persistence.criteria.Root;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -19,6 +20,7 @@ import org.springframework.stereotype.Service;
 
 import com.sgcc.uap.demo.domain.Employee;
 import com.sgcc.uap.demo.repositories.EmployeeRepository;
+import com.sgcc.uap.rest.support.DicItems;
 import com.sgcc.uap.rest.support.IDRequestObject;
 import com.sgcc.uap.rest.support.QueryFilter;
 import com.sgcc.uap.rest.support.QueryResultObject;
@@ -39,13 +41,18 @@ import com.sgcc.uap.rest.utils.RestUtils;
  */
 @Service
 public class EmployeeService  implements IEmployeeService{
+	
+	@Value("${spring.sex}")
+	private String sex = "";
+	
 	@Autowired
 	private EmployeeRepository employeeRepository;
 	
 	@Override
 	public QueryResultObject getEmployeeById(String id) {
 		Employee employee = employeeRepository.findOne(id);
-		return RestUtils.wrappQueryResult(employee);
+		List<DicItems> dictList = RestUtils.wrapDictList("sex", sex);
+		return RestUtils.wrappQueryResult(employee).addDicItems(dictList);
 	}
 	@Override
 	public void remove(IDRequestObject idObject) {
@@ -106,7 +113,8 @@ public class EmployeeService  implements IEmployeeService{
 		long count = 0;
 		result = employee.getContent();
 		count = employee.getTotalElements();
-		return RestUtils.wrappQueryResult(result, count);
+		List<DicItems> dictList = RestUtils.wrapDictList("sex", sex);
+		return RestUtils.wrappQueryResult(result, count).addDicItems(dictList);
 	}
 
 	/**

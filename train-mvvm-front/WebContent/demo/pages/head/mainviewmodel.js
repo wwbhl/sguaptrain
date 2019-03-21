@@ -13,7 +13,7 @@ define([], function() {
 		   		 hasChildren: false
 		     }];
 		self.onSelectItemChanged = function(p_value){
-			
+			app.setLocation(p_value.route);
 		};
 		cube.endViewModel(self, params);
 	};

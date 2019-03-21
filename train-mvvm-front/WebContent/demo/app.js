@@ -8,4 +8,5 @@ define(['text'], function(text){
 			cube.importComponent("datacontainer.datagrid");
 	         cube.importComponent("datacontainer.searchbox");
 	         cube.importComponent("controls.toolbar");
+	         cube.importComponent("datacontainer.dataform");
 });
