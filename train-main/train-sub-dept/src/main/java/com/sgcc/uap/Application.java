@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.autoconfigure.session.SessionAutoConfiguration;
 import org.springframework.cloud.bus.BusAutoConfiguration;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.sleuth.zipkin.ZipkinAutoConfiguration;
@@ -30,6 +31,8 @@ import org.springframework.cloud.sleuth.zipkin.ZipkinAutoConfiguration;
 @SpringBootApplication(scanBasePackages={"com.sgcc.uap","com.sgcc.uap.rest.annotation"},exclude={SessionAutoConfiguration.class,BusAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
+@EnableCircuitBreaker
+//@EnableHystrixDashboard
 public class Application {
 	
 	public static void main(String[] args) {
