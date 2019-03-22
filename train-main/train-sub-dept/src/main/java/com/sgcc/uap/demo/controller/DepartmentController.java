@@ -4,7 +4,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -174,11 +176,15 @@ public class DepartmentController {
 	}
 	@Autowired
 	private RestTemplate restTemplate;
+	@Autowired
+	private LoadBalancerClient balanceClient;
 	
 	@RequestMapping(value="/count/{params}")
 	public int getEmployeeCount(@PathVariable String params){
 	int count = 0;
 	count = restTemplate.getForObject("http://train-sub-emp/employee/count/{params}", int.class,params);
+	ServiceInstance  serviceInstance = balanceClient.choose("train-sub-emp");
+	System.out.println("调用端口号：" + serviceInstance.getPort());
 	return count;
 	}
 }
