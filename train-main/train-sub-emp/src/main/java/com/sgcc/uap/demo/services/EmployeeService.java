@@ -13,6 +13,7 @@ import javax.persistence.criteria.Root;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
@@ -40,6 +41,7 @@ import com.sgcc.uap.rest.utils.RestUtils;
  * @since 1.0
  */
 @Service
+@RefreshScope
 public class EmployeeService  implements IEmployeeService{
 	
 	@Value("${spring.sex}")

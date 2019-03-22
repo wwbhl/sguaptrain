@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfigurat
 import org.springframework.boot.autoconfigure.session.SessionAutoConfiguration;
 import org.springframework.cloud.bus.BusAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.sleuth.zipkin.ZipkinAutoConfiguration;
 
 
@@ -28,6 +29,7 @@ import org.springframework.cloud.sleuth.zipkin.ZipkinAutoConfiguration;
 
 @SpringBootApplication(scanBasePackages={"com.sgcc.uap","com.sgcc.uap.rest.annotation"},exclude={SessionAutoConfiguration.class,BusAutoConfiguration.class,ZipkinAutoConfiguration.class})
 //@EnableDiscoveryClient
+
 public class Application {
 	
 	public static void main(String[] args) {
