@@ -3,6 +3,7 @@ define(["RESTClient"], function(RestClient) {
 	var PageViewModel = function(params) {
 		var self = this;
 		self.count = cube.obj(0);
+		//修改成网关地址，统一路由
 		self.url = cube.gatewayURL + "/department/";
 		self.args = cube.obj({"depParentId":params.depId()});
 		self.columns = [
