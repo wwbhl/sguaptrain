@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.sgcc.uap.demo.feign.UserFeignClient;
 import com.sgcc.uap.demo.services.IDepartmentService;
 import com.sgcc.uap.demo.vo.DepartmentVO;
 import com.sgcc.uap.rest.annotation.ColumnRequestParam;
@@ -168,21 +169,25 @@ public class DepartmentController {
 			return WrappedResult.failedWrappedResult(e.getMessage());
 		}
 	}
-
-	@Bean
+	//==========Ribbon负载均衡===========
+	/*@Bean
 	@LoadBalanced
 	RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
 	@Autowired
-	private RestTemplate restTemplate;
+	private RestTemplate restTemplate;*/
+	//==========Feign负载均衡===========
+	@Autowired
+	private UserFeignClient feignClient;
 	@Autowired
 	private LoadBalancerClient balanceClient;
 	
 	@RequestMapping(value="/count/{params}")
 	public int getEmployeeCount(@PathVariable String params){
 	int count = 0;
-	count = restTemplate.getForObject("http://train-sub-emp/employee/count/{params}", int.class,params);
+//	count = restTemplate.getForObject("http://train-sub-emp/employee/count/{params}", int.class,params);
+	count = feignClient.getEmployeeCount(params);
 	ServiceInstance  serviceInstance = balanceClient.choose("train-sub-emp");
 	System.out.println("调用端口号：" + serviceInstance.getPort());
 	return count;
