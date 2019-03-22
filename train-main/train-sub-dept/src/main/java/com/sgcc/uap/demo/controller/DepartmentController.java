@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -167,6 +168,7 @@ public class DepartmentController {
 	}
 
 	@Bean
+	@LoadBalanced
 	RestTemplate restTemplate(){
 		return new RestTemplate();
 	}
@@ -176,7 +178,7 @@ public class DepartmentController {
 	@RequestMapping(value="/count/{params}")
 	public int getEmployeeCount(@PathVariable String params){
 	int count = 0;
-	count = restTemplate.getForObject("http://localhost:9996/employee/count/{params}", int.class,params);
+	count = restTemplate.getForObject("http://train-sub-emp/employee/count/{params}", int.class,params);
 	return count;
 	}
 }
