@@ -27,7 +27,7 @@ import org.springframework.cloud.sleuth.zipkin.ZipkinAutoConfiguration;
  */
 
 @SpringBootApplication(scanBasePackages={"com.sgcc.uap","com.sgcc.uap.rest.annotation"},exclude={SessionAutoConfiguration.class,BusAutoConfiguration.class})
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class Application {
 	
 	public static void main(String[] args) {
